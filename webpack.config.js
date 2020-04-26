@@ -16,9 +16,9 @@ module.exports = {
       	contentBase: resolveAppPath('public'),
       	// Public path is root of content base
       	publicPath: '/',
-      	// Open Default browser upon successful loading
-      	open: true,
-      	// Compress GZIP
+      	// Open Default browser upon successful loading, Prepos is loading, so false.
+      	open: false,
+      	// Compress in GZIP format
         compress: true,
         // Hot Module Replacement, Automatically reloads browser when modifications are made.
         hot: true,
