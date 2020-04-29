@@ -72,6 +72,22 @@ main {
   display: block;
   position: relative;
 }
+main .inner .taskInput {
+  margin: auto;
+  max-width: 800px;
+}
+main .inner .taskInput form {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .inner .taskInput form input[name=firstName] {
+  width: 100%;
+  height: 40px;
+  font: bold 20px "Roboto";
+  text-align: center;
+}
 main .inner .taskList {
   margin: 30px auto 0;
   max-width: 800px;
