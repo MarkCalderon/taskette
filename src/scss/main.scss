@@ -1,0 +1,68 @@
+@import "reset";
+
+// Colors
+$black: #000;
+$white: #fff;
+
+header {
+    .inner {
+        padding: 20px 20px;
+        box-sizing: border-box;
+        background: rgba($black, 0.8);
+
+        h1 {
+            font: bold 25px 'Roboto';
+            text-transform: uppercase;
+            color: $white;
+        }
+    }
+}
+
+main {
+    display: block;
+    position: relative;
+    
+    .inner {
+
+        .taskList {
+            margin: 30px auto 0;
+            max-width: 1200px;
+
+            &__item {
+                margin-bottom: 50px;
+
+                &:not(:first-child) {
+                    padding-top: 50px;
+                    border-top: 1px solid $black;
+                }
+
+                .title {
+                    font: 100 18px 'Roboto';
+                }
+
+                .description {
+                    font: 100 15px 'Roboto';
+                }
+            }
+        }
+    }
+
+
+
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    background: rgba($black, 0.2);
+
+    small {
+        font: bold 11px 'Roboto';
+        text-transform: uppercase;
+        color: $black;
+    }
+}
+
