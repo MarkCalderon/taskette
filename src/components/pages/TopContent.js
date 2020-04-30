@@ -15,7 +15,8 @@ class TopContent extends React.Component {
             postList: [],
             firstName: ''
         }
-
+        
+        // Requirement to bind function to be called.
         this.handleChange = this.handleChange.bind(this)
     }
 
@@ -35,6 +36,7 @@ class TopContent extends React.Component {
 
     handleChange(event) {
         const {name, value} = event.target
+        // If enter key is pressed
         if(event.keyCode === 13) {
             event.preventDefault()
             // Get index id
