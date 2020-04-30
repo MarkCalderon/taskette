@@ -12,8 +12,11 @@ class TopContent extends React.Component {
         // State is an object {},
         // PostList is an array []
         this.state = {
-            postList: []
+            postList: [],
+            firstName: ''
         }
+
+        this.handleChange = this.handleChange.bind(this)
     }
 
     // Fetch Data from JSONPlaceholder
@@ -25,9 +28,34 @@ class TopContent extends React.Component {
             .then((data) => {
                 // Stores setState to object without function.
                 this.setState({
-                    postList: data
+                    postList: data,
                 })
             })
+    }
+
+    handleChange(event) {
+        const {name, value} = event.target
+        if(event.keyCode === 13) {
+            event.preventDefault()
+            // Get index id
+            let lastIndex = this.state.postList.length
+            //Object Array to hold new values
+            let obj = {}
+            // Pass new values to postList array as a new object
+            obj['userId'] = 5
+            obj['id'] = lastIndex+1
+            obj['title'] = value
+            obj['body'] = 'Body text'
+            
+            // Set value, but first gets the previous state to pass through the parameter
+            this.setState(prevState => ({
+                // Stores the obj array value and, using spread operator, adds all the rest of the prevState.postList array
+                postList: [obj, ...prevState.postList]
+            }), () => {
+                // Once finish, log the current state postList array.
+                console.log(this.state.postList)
+            })
+        }
     }
 
     componentDidMount() {
@@ -37,7 +65,7 @@ class TopContent extends React.Component {
     render() {
         // Slices/take only 5 items out of the original Array
         // Map only works for Arrays
-        const dataIn = this.state.postList.slice(0,5).map(item => {
+        const dataIn = this.state.postList.slice(0,100).map(item => {
             // postList is passed as an item.
             return (
                     // Pass values of the state to the component as a prop.
@@ -49,6 +77,11 @@ class TopContent extends React.Component {
         return (
             <main>
                 <div className="inner">
+                    <div className="taskInput">
+                        <form>
+                            <input type="text" name="firstName" placeholder="Enter task here..." onKeyDown={this.handleChange} />
+                        </form>
+                    </div>
                     <div className="taskList">
                         { dataIn }
                     </div>
