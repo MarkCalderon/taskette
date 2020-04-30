@@ -21,16 +21,20 @@ header {
 main {
     display: block;
     position: relative;
+    box-sizing: border-box;
     
     .inner {
+        display: block;
+        padding-top: 50px;
+        box-sizing: border-box;
 
 
         .taskInput {
             margin: auto;
             max-width: 800px;
+            padding: 0 20px;
 
             form {
-                margin-top: 50px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -45,12 +49,15 @@ main {
         }
 
         .taskList {
-            margin: 30px auto 0;
+            margin: 20px auto 0;
+            padding: 0 20px;
             max-width: 800px;
+            max-height: calc(100vh - 250px);
+            overflow-y: scroll;
 
             &__item {
                 padding-top: 30px;
-                margin-bottom: 50px;
+                padding-bottom: 50px;
                 transition: .5s ease;
 
                 &:hover {
@@ -79,17 +86,17 @@ main {
 }
 
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     padding: 20px 30px;
     box-sizing: border-box;
     background: rgba($black, 0.2);
 
-    small {
-        font: bold 11px 'Roboto';
+    h1 {
+        font: bold 13px 'Roboto';
         text-transform: uppercase;
-        color: $black;
+        color: gray;
     }
 }
 

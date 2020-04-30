@@ -71,13 +71,19 @@ header .inner h1 {
 main {
   display: block;
   position: relative;
+  box-sizing: border-box;
+}
+main .inner {
+  display: block;
+  padding-top: 50px;
+  box-sizing: border-box;
 }
 main .inner .taskInput {
   margin: auto;
   max-width: 800px;
+  padding: 0 20px;
 }
 main .inner .taskInput form {
-  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,12 +95,15 @@ main .inner .taskInput form input[name=firstName] {
   text-align: center;
 }
 main .inner .taskList {
-  margin: 30px auto 0;
+  margin: 20px auto 0;
+  padding: 0 20px;
   max-width: 800px;
+  max-height: calc(100vh - 250px);
+  overflow-y: scroll;
 }
 main .inner .taskList__item {
   padding-top: 30px;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   transition: 0.5s ease;
 }
 main .inner .taskList__item:hover {
@@ -113,15 +122,15 @@ main .inner .taskList__item .description {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   padding: 20px 30px;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.2);
 }
-footer small {
-  font: bold 11px "Roboto";
+footer h1 {
+  font: bold 13px "Roboto";
   text-transform: uppercase;
-  color: #000;
+  color: gray;
 }

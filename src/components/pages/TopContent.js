@@ -17,7 +17,7 @@ class TopContent extends React.Component {
         }
         
         // Requirement to bind function to be called.
-        this.handleChange = this.handleChange.bind(this)
+        this.handleEnter = this.handleEnter.bind(this)
     }
 
     // Fetch Data from JSONPlaceholder
@@ -34,29 +34,30 @@ class TopContent extends React.Component {
             })
     }
 
-    handleChange(event) {
+    handleEnter(event) {
         const {name, value} = event.target
         // If enter key is pressed
         if(event.keyCode === 13) {
+            // Prevents default reloading of page upon submission of form.
             event.preventDefault()
-            // Get index id
-            let lastIndex = this.state.postList.length
-            //Object Array to hold new values
-            let obj = {}
-            // Pass new values to postList array as a new object
-            obj['userId'] = 5
-            obj['id'] = lastIndex+1
-            obj['title'] = value
-            obj['body'] = 'Body text'
-            
             // Set value, but first gets the previous state to pass through the parameter
+            // setState is a asynchronous procedure, meaning it happens at the same time.
             this.setState(prevState => ({
-                // Stores the obj array value and, using spread operator, adds all the rest of the prevState.postList array
-                postList: [obj, ...prevState.postList]
+                postList: [
+                {
+                    userID: 5,
+                    // Get last index id and add +1
+                    id: prevState.postList.length+1,
+                    title: value,
+                    body: '2'
+                    // Retrieves the previous state of array and adds all/rest of the items
+                }, ...prevState.postList],
             }), () => {
                 // Once finish, log the current state postList array.
                 console.log(this.state.postList)
             })
+                // Input field value is cleared
+                event.target.value = ''
         }
     }
 
@@ -71,7 +72,7 @@ class TopContent extends React.Component {
             // postList is passed as an item.
             return (
                     // Pass values of the state to the component as a prop.
-                    <ListData key={item.id} title={item.title} description={item.body} />
+                    <ListData key={item.id} title={item.title} />
             )
         })
 
@@ -81,7 +82,7 @@ class TopContent extends React.Component {
                 <div className="inner">
                     <div className="taskInput">
                         <form>
-                            <input type="text" name="firstName" placeholder="Enter task here..." onKeyDown={this.handleChange} />
+                            <input type="text" name="firstName" defaultValue={this.state.firstName} placeholder="Enter task here..." onKeyDown={this.handleEnter} />
                         </form>
                     </div>
                     <div className="taskList">
