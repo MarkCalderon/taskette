@@ -97,7 +97,7 @@ main .inner .taskInput form input[name=firstName] {
 main .inner .taskList {
   margin: 20px auto 0;
   padding: 0 20px;
-  max-width: 800px;
+  max-width: 760px;
   max-height: calc(100vh - 250px);
   overflow-y: scroll;
 }
