@@ -105,20 +105,70 @@ main .inner .taskList__item {
   padding-top: 30px;
   padding-bottom: 50px;
   transition: 0.5s ease;
-}
-main .inner .taskList__item:hover {
-  opacity: 0.7;
-  cursor: pointer;
+  -webkit-user-select: none;
+          user-select: none;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
 }
 main .inner .taskList__item:not(:first-child) {
   padding-top: 50px;
   border-top: 1px solid #000;
 }
 main .inner .taskList__item .title {
-  font: 100 18px "Roboto";
+  font: 500 18px "Roboto";
+  text-transform: uppercase;
 }
-main .inner .taskList__item .description {
-  font: 100 15px "Roboto";
+main .inner .taskList__item .checkbox {
+  position: relative;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+main .inner .taskList__item .checkbox input[type=checkbox] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+main .inner .taskList__item .checkbox .check {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 13px;
+  height: 13px;
+  pointer-events: none;
+}
+main .inner .taskList__item .checkbox input[type=checkbox]:checked ~ .check:before, main .inner .taskList__item .checkbox input[type=checkbox]:checked ~ .check:after {
+  content: "";
+  position: absolute;
+  top: 49%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 10px;
+  height: 2px;
+  background: red;
+}
+main .inner .taskList__item .checkbox input[type=checkbox]:checked ~ .check:before {
+  transform: rotate(-45deg) translateX(0px);
+}
+main .inner .taskList__item .checkbox input[type=checkbox]:checked ~ .check:after {
+  transform: rotate(45deg) translateX(0px);
 }
 
 footer {

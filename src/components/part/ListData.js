@@ -5,6 +5,10 @@ export default class ListData extends React.Component {
         return(
             <div className="taskList__item">
                 <div className="title">{this.props.title}</div>
+                <div className="checkbox">
+                    <input type="checkbox" checked={this.props.isChecked} onChange={(event) => this.props.handleDelete(this.props.id)}/>
+                    <div className="check"></div>
+                </div>
             </div>
         )
     }
