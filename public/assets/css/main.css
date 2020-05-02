@@ -75,7 +75,7 @@ main {
 }
 main .inner {
   display: block;
-  padding-top: 50px;
+  padding-top: 20px;
   box-sizing: border-box;
 }
 main .inner .taskInput {
@@ -95,15 +95,15 @@ main .inner .taskInput form input[name=firstName] {
   text-align: center;
 }
 main .inner .taskList {
-  margin: 20px auto 0;
+  margin: 0 auto 0;
   padding: 0 20px;
   max-width: 760px;
-  max-height: calc(100vh - 250px);
+  max-height: calc(100vh - 210px);
   overflow-y: scroll;
 }
 main .inner .taskList__item {
-  padding-top: 30px;
-  padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   transition: 0.5s ease;
   -webkit-user-select: none;
           user-select: none;
@@ -111,11 +111,16 @@ main .inner .taskList__item {
   justify-content: space-between;
   flex-flow: row wrap;
 }
+main .inner .taskList__item.is__cross {
+  opacity: 0.2;
+  pointer-events: none;
+}
 main .inner .taskList__item:not(:first-child) {
-  padding-top: 50px;
+  padding-top: 20px;
   border-top: 1px solid #000;
 }
 main .inner .taskList__item .title {
+  width: calc(100% - 30px);
   font: 500 18px "Roboto";
   text-transform: uppercase;
 }
@@ -178,6 +183,7 @@ footer {
   padding: 20px 30px;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 footer h1 {
   font: bold 13px "Roboto";

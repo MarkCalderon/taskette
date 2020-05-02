@@ -141,8 +141,11 @@ class TopContent extends React.Component {
         }
 
         const data = this.state.postList
+
         // Mapping a Object Array
         const dataIn = Object.keys(data).reverse().map(i => {
+
+
             // postList is passed as an item.
             return (
                 // Pass values of the state to the component as a prop.
